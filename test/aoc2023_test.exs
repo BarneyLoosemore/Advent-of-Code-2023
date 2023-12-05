@@ -22,4 +22,11 @@ defmodule Aoc2023Test do
     assert Day03.pt1(input) === 4361
     assert Day03.pt2(input) === 467_835
   end
+
+  test "Day 4" do
+    input = Input.read!("4", :sample)
+
+    assert Day04.pt1(input) === 13
+    assert Day04.pt2(input) === 30
+  end
 end
