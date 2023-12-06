@@ -6,7 +6,7 @@ defmodule Input do
   def read!(day, type \\ :solution)
 
   def read!(day, type) do
-    day = day |> String.pad_leading(2, "0")
+    day = day |> to_string |> String.pad_leading(2, "0")
     read_file!("day#{day}.txt", type)
   end
 end
