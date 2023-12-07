@@ -59,4 +59,29 @@ defmodule Aoc2023Test do
     assert Day06.pt1(input) === 288
     assert Day06.pt2(input) === 71503
   end
+
+  test "Day 7" do
+    input = Input.read!(7, :sample)
+
+    assert Day07.pt1(input) === 6440
+    assert Day07.pt2(input) === 5905
+
+    assert Day07.get_strength(["A", "A", "A", "A", "A"]) === 6
+    assert Day07.get_strength(["A", "A", "A", "A", "Q"]) === 5
+
+    assert Day07.compare_card_strengths(
+             ["A", "A", "A", "A", "A"],
+             ["A", "A", "A", "A", "K"]
+           ) === true
+
+    assert Day07.compare_card_strengths(
+             ["A", "A", "A", "A", "A"],
+             ["A", "A", "A", "K", "K"]
+           ) === true
+
+    assert Day07.get_strength_pt2(["J", "K", "K", "K", "2"]) ===
+             Day07.get_strength_pt2(["Q", "Q", "Q", "Q", "2"])
+
+    assert Day07.get_strength_pt2(["A", "A", "A", "1", "2"]) === 3
+  end
 end
