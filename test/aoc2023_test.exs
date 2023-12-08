@@ -2,36 +2,36 @@ defmodule Aoc2023Test do
   use ExUnit.Case
 
   test "Day 1" do
-    input = Input.read!(1, :sample)
-    input_pt2 = Input.read!(1, :sample_pt2)
+    input = Input.read!(1, :test)
+    input_pt2 = Input.read!(1, :test_pt2)
 
     assert Day01.pt1(input) === 142
     assert Day01.pt2(input_pt2) === 281
   end
 
   test "Day 2" do
-    input = Input.read!(2, :sample)
+    input = Input.read!(2, :test)
 
     assert Day02.pt1(input) === 8
     assert Day02.pt2(input) === 2286
   end
 
   test "Day 3" do
-    input = Input.read!(3, :sample)
+    input = Input.read!(3, :test)
 
     assert Day03.pt1(input) === 4361
     assert Day03.pt2(input) === 467_835
   end
 
   test "Day 4" do
-    input = Input.read!(4, :sample)
+    input = Input.read!(4, :test)
 
     assert Day04.pt1(input) === 13
     assert Day04.pt2(input) === 30
   end
 
   test "Day 5" do
-    input = Input.read!(5, :sample)
+    input = Input.read!(5, :test)
 
     assert Day05.pass_through_map([[50, 98, 2], [52, 50, 48]], 79) === 81
 
@@ -53,7 +53,7 @@ defmodule Aoc2023Test do
   end
 
   test "Day 6" do
-    input = Input.read!(6, :sample)
+    input = Input.read!(6, :test)
 
     assert Day06.ways_to_beat_record(7, 9) === 4
     assert Day06.pt1(input) === 288
@@ -61,7 +61,7 @@ defmodule Aoc2023Test do
   end
 
   test "Day 7" do
-    input = Input.read!(7, :sample)
+    input = Input.read!(7, :test)
 
     assert Day07.pt1(input) === 6440
     assert Day07.pt2(input) === 5905
@@ -83,5 +83,21 @@ defmodule Aoc2023Test do
              Day07.get_strength_pt2(["Q", "Q", "Q", "Q", "2"])
 
     assert Day07.get_strength_pt2(["A", "A", "A", "1", "2"]) === 3
+  end
+
+  test "Day 8" do
+    input = Input.read!(8)
+    input_pt2 = Input.read!(8, :test_pt2)
+
+    # assert Day08.pt1(input) === 2
+
+    # assert Day08.find_zzz(
+    #          [0, 0],
+    #          [0, 0],
+    #          "AAA",
+    #          %{"AAA" => ["BBB", "CCC"], "BBB" => ["ZZZ", "FFF"]}
+    #        ) === 2
+
+    assert Day08.pt2(input_pt2) === 6
   end
 end

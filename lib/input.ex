@@ -1,6 +1,6 @@
 defmodule Input do
-  defp read_file!(file_name, :sample), do: File.read!("inputs/sample/#{file_name}")
-  defp read_file!(file_name, :sample_pt2), do: File.read!("inputs/sample_pt2/#{file_name}")
+  defp read_file!(file_name, :test), do: File.read!("inputs/test/#{file_name}")
+  defp read_file!(file_name, :test_pt2), do: File.read!("inputs/test_pt2/#{file_name}")
   defp read_file!(file_name, :solution), do: File.read!("inputs/solution/#{file_name}")
 
   def read!(day, type \\ :solution)
