@@ -86,18 +86,48 @@ defmodule Aoc2023Test do
   end
 
   test "Day 8" do
-    input = Input.read!(8)
+    input = Input.read!(8, :test)
     input_pt2 = Input.read!(8, :test_pt2)
 
-    # assert Day08.pt1(input) === 2
+    assert Day08.pt1(input) === 2
 
-    # assert Day08.find_zzz(
-    #          [0, 0],
-    #          [0, 0],
-    #          "AAA",
-    #          %{"AAA" => ["BBB", "CCC"], "BBB" => ["ZZZ", "FFF"]}
-    #        ) === 2
+    assert Day08.find_zzz(
+             [0, 0],
+             [0, 0],
+             "AAA",
+             %{"AAA" => ["BBB", "CCC"], "BBB" => ["ZZZ", "FFF"]}
+           ) === 2
 
     assert Day08.pt2(input_pt2) === 6
+  end
+
+  test "Day 9" do
+    input = Input.read!(9, :test)
+
+    assert Day09.parse_input(input) === [
+             [0, 3, 6, 9, 12, 15],
+             [1, 3, 6, 10, 15, 21],
+             [10, 13, 16, 21, 30, 45]
+           ]
+
+    assert Day09.find_differences([0, 3, 6, 9, 12, 15]) === [[3, 3, 3, 3, 3]]
+    assert Day09.find_differences([1, 3, 6, 10, 15, 21]) === [[2, 3, 4, 5, 6], [1, 1, 1, 1]]
+
+    assert Day09.find_differences([10, 13, 16, 21, 30, 45]) === [
+             [3, 3, 5, 9, 15],
+             [0, 2, 4, 6],
+             [2, 2, 2]
+           ]
+
+    assert Day09.find_next_value([0, 3, 6, 9, 12, 15]) === 18
+    assert Day09.find_next_value([1, 3, 6, 10, 15, 21]) === 28
+    assert Day09.find_next_value([10, 13, 16, 21, 30, 45]) === 68
+
+    assert Day09.pt1(input) === 114
+
+    assert Day09.find_prev_value([0, 3, 6, 9, 12, 15]) === -3
+    assert Day09.find_prev_value([1, 3, 6, 10, 15, 21]) === 0
+    assert Day09.find_prev_value([10, 13, 16, 21, 30, 45]) === 5
+    assert Day09.pt2(input) === 2
   end
 end

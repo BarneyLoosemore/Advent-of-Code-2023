@@ -1,6 +1,4 @@
 defmodule Day08 do
-  import Math
-
   def parse_input(input) do
     [directions, elements] = input |> String.split("\n\n")
 
@@ -85,7 +83,7 @@ defmodule Day08 do
       input
       |> parse_input
 
-    keys =
+    starting_keys =
       Enum.reduce(
         element_map,
         [],
@@ -97,12 +95,10 @@ defmodule Day08 do
         end
       )
 
-    [steps | tail] =
-      for key <- keys do
-        find_ends_with_z(directions, directions, key, element_map)
-      end
-
     # get the lowest common multiple of all the step counts
-    Enum.reduce(tail, steps, &Math.lcm/2)
+    for key <- starting_keys, reduce: 1 do
+      lcm ->
+        Math.lcm(find_ends_with_z(directions, directions, key, element_map), lcm)
+    end
   end
 end
